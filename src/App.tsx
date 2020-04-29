@@ -24,7 +24,7 @@ const App: React.FC = () => {
         path={process.env.PUBLIC_URL + "/markdown"}
         component={markdown}
       />
-      <Route exact path="/tab" component={tab} />
+      <Route exact path="/tab" component={tab} />s
     </Switch>
   );
 };
