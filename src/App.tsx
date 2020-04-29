@@ -12,6 +12,7 @@ import markdown from "./pages/module/markdown";
 import tab from "./pages/ui/tab";
 //---------------------------------------------------------------------
 const App: React.FC = () => {
+  console.log(process.env.PUBLIC_URL);
   //---------------------------------------------------------------------
   //initalize
   //---------------------------------------------------------------------
@@ -19,12 +20,8 @@ const App: React.FC = () => {
     <Switch>
       <Route exact path="/" component={main} />
       <Route exact path={process.env.PUBLIC_URL + "/form"} component={form} />
-      <Route
-        exact
-        path={process.env.PUBLIC_URL + "/markdown"}
-        component={markdown}
-      />
-      <Route exact path="/tab" component={tab} />s
+      <Route exact path={`/markdown`} component={markdown} />
+      <Route exact path={`/tab`} component={tab} />s
     </Switch>
   );
 };
