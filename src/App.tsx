@@ -17,7 +17,7 @@ const App: React.FC = () => {
   //---------------------------------------------------------------------
   return (
     <Switch>
-      <Route exact path={process.env.PUBLIC_URL + "/"} component={main} />
+      <Route exact path="/" component={main} />
       <Route exact path={process.env.PUBLIC_URL + "/form"} component={form} />
       <Route
         exact
