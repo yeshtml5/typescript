@@ -2,6 +2,7 @@
  */
 import React from 'react'
 import styled from 'styled-components'
+import {Link} from 'react-router'
 //component
 //layout
 
@@ -13,18 +14,18 @@ export default () => {
     <Nav>
       <dl>
         <dt>
-          <a href="/">UI1</a> 
+          <Link to="/">UI1</Link> 
         </dt>
       </dl>
       <dl>
         <dt>
-          <a href="/">Button</a>
+          <Link to="/button">Button</Link> 
         </dt>
         <dt>
-          <a href="/form">Form</a> 
+          <Link to="/form">Form</Link> 
         </dt>
         <dt>
-          <a href="/markdown">MarkDown</a> 
+          <Link to="/markdown">markdown</Link> 
         </dt>
       </dl>
     </Nav>
