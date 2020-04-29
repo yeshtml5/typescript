@@ -22,7 +22,7 @@ const App: React.FC = () => {
         <Route exact path="/" component={main} />
         <Route exact path="/form" component={form} />
         <Route exact path="/markdown" component={markdown} />
-        <Route exact path="/tab" component={tab} />s
+        <Route exact path="/tab" component={tab} />
       </Switch>
     </HashRouter>
   )
