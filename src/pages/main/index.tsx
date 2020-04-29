@@ -5,6 +5,7 @@ import React from 'react'
 //components
 import Layout from '../common/layout'
 import {lastArray} from '../../components/lib/util'
+import {TextField} from 'components/ui/TextField'
 //
 
 interface IProps {}
@@ -18,6 +19,14 @@ const App: React.FC = () => {
   //---------------------------------------------------------------------
   return (
     <Layout>
+      <TextField
+        text="타이틀111"
+        handleChange={e => {
+          console.log(e.target.value)
+        }}
+      />
+
+      <TextField text="dddd" handleChange={() => {}} />
       {/* <counter startCount={3} /> */}
       <h1>타이틀1</h1>
     </Layout>
