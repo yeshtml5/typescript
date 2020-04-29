@@ -17,9 +17,13 @@ const App: React.FC = () => {
   //---------------------------------------------------------------------
   return (
     <Switch>
-      <Route exact path="/" component={main} />
-      <Route exact path="/form" component={form} />
-      <Route exact path="/markdown" component={markdown} />
+      <Route exact path={process.env.PUBLIC_URL + "/"} component={main} />
+      <Route exact path={process.env.PUBLIC_URL + "/form"} component={form} />
+      <Route
+        exact
+        path={process.env.PUBLIC_URL + "/markdown"}
+        component={markdown}
+      />
       <Route exact path="/tab" component={tab} />
     </Switch>
   );
