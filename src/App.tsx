@@ -1,29 +1,31 @@
 /**
  * @title
  */
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react'
+import {Route, Switch, HashRouter} from 'react-router-dom'
 //components
 //Page
-import main from "pages/main";
-import form from "pages/form";
-import markdown from "./pages/module/markdown";
+import main from 'pages/main'
+import form from 'pages/form'
+import markdown from './pages/module/markdown'
 /*ui*/
-import tab from "./pages/ui/tab";
+import tab from './pages/ui/tab'
 //---------------------------------------------------------------------
 const App: React.FC = () => {
-  console.log(process.env.PUBLIC_URL);
+  console.log(process.env.PUBLIC_URL)
   //---------------------------------------------------------------------
   //initalize
   //---------------------------------------------------------------------
   return (
-    <Switch>
-      <Route exact path="/" component={main} />
-      <Route exact path={process.env.PUBLIC_URL + "/form"} component={form} />
-      <Route exact path={`/markdown`} component={markdown} />
-      <Route exact path={`/tab`} component={tab} />s
-    </Switch>
-  );
-};
+    <HashRouter basename="/">
+      <Switch>
+        <Route exact path="/" component={main} />
+        <Route exact path="/form" component={form} />
+        <Route exact path="/markdown" component={markdown} />
+        <Route exact path="/tab" component={tab} />s
+      </Switch>
+    </HashRouter>
+  )
+}
 
-export default App;
+export default App
