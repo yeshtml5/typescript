@@ -1,0 +1,14 @@
+#root {
+  height: 100vh;
+  > main {
+    display: flex;
+    > header {
+      width: 200px; /* A fixed width as the default */
+      height: 100vh;
+      background: #eee;
+    }
+    > article {
+      flex-grow: 1; /* Set the middle element to grow and stretch */
+    }
+  }
+}

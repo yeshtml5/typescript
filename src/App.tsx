@@ -1,26 +1,28 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-
-function App() {
+/**
+ * @title
+ */
+import React from 'react'
+import {Route, Switch} from 'react-router-dom'
+//components
+//Page
+import main from './pages/main'
+import form from './pages/form'
+import markdown from './pages/module/markdown'
+/*ui*/
+import tab from './pages/ui/tab'
+//---------------------------------------------------------------------
+const App: React.FC = () => {
+  //---------------------------------------------------------------------
+  //initalize
+  //---------------------------------------------------------------------
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          11Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Switch>
+      <Route exact path="/" component={main} />
+      <Route exact path="/form" component={form} />
+      <Route exact path="/markdown" component={markdown} />
+      <Route exact path="/tab" component={tab} />
+    </Switch>
+  )
 }
 
-export default App;
+export default App

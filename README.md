@@ -1,44 +1,84 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#setup
 
-## Available Scripts
+- prettier <https://prettier.io/docs/en/options.html>
 
-In the project directory, you can run:
+#github connect
 
-### `yarn start`
+```
+git remote add origin https://github.com/yeshtml5/typescript.git
+git push -u origin master
+git status
+git add .
+git commit -m "your message"
+git push -f origin master
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 플러그인
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- TypeScript React Code Snippets
 
-### `yarn test`
+### 강좌페이지
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- <https://eunajjing.github.io/2019/05/15/woowahan01/>
+- <https://react-etc.vlpt.us/06.typescript-basic.html>
+- <https://www.youtube.com/watch?v=nViEqpgwxHE>
 
-### `yarn build`
+### Package.json
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- moment
+- lodash
+- chalk
+- <https://react-hook-form.com>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Error || Problems
 
-### `yarn eject`
+#### 타입스크립트 코드수정해도 Reload가 되지않을때
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+//tsconfig.json 에서
+{
+    "compilerOptions": {
+        "watch": true
+    }
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+### Article
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### GET SOME DATA
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- <https://jsonplaceholder.typicode.com/>
+
+  ```
+  /posts 100 posts
+  /comments 500 comments
+  /albums 100 albums
+  /photos 5000 photos
+  /todos 200 todos
+  /users 10 users
+  ```
+
+- <https://m.blog.naver.com/PostView.nhn?blogId=gomland&logNo=221553974338&categoryNo=1&proxyReferer=https%3A%2F%2Fwww.google.com%2F>
+
+###
+
+- <https://marketplace.visualstudio.com/items?itemName=humao.rest-client>
+
+---
+
+### Plugin
+
+#### [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+  RESTFUL 미리보기 가능
+
+```
+GET https://devapi.monpass.im/api/crm/sms/log/?start_date=2019.11.01&end_date=2019.11.30
+Content-Type: application/json
+token: d4c51ea4c51c8569eff087c637e338194a233085fc711b8ed76a288b2714375c
+```
