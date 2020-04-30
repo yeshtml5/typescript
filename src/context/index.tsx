@@ -1,20 +1,27 @@
+/**
+ * Returns the sum of a and b
+ * @param {}
+ */
 import React, {createContext, Dispatch, useReducer, useContext} from 'react'
 
+//export type
 export type Todo = {
   id: number
   text: string
   done: boolean
 }
-
 export type TodosState = Todo[]
-
-const TodosStateContext = createContext<TodosState | undefined>(undefined)
-
+//---------------------------------------------------------------------
 type Action = {type: 'CREATE'; text: string} | {type: 'TOGGLE'; id: number} | {type: 'REMOVE'; id: number}
-
 type TodosDispatch = Dispatch<Action>
+const TodosStateContext = createContext<TodosState | undefined>(undefined)
 const TodosDispatchContext = createContext<TodosDispatch | undefined>(undefined)
-
+//---------------------------------------------------------------------
+/**
+ * reducer
+ * @param state
+ * @param action
+ */
 function todosReducer(state: TodosState, action: Action): TodosState {
   switch (action.type) {
     case 'CREATE':
@@ -32,7 +39,10 @@ function todosReducer(state: TodosState, action: Action): TodosState {
       throw new Error('Unhandled action')
   }
 }
-
+//---------------------------------------------------------------------
+/**
+ * @title Provider
+ */
 export function TodosContextProvider({children}: {children: React.ReactNode}) {
   const [todos, dispatch] = useReducer(todosReducer, [
     {
@@ -58,13 +68,17 @@ export function TodosContextProvider({children}: {children: React.ReactNode}) {
     </TodosDispatchContext.Provider>
   )
 }
-
+/**
+ * useState
+ */
 export function useTodosState() {
   const state = useContext(TodosStateContext)
   if (!state) throw new Error('TodosProvider not found')
   return state
 }
-
+/**
+ * useDispatch
+ */
 export function useTodosDispatch() {
   const dispatch = useContext(TodosDispatchContext)
   if (!dispatch) throw new Error('TodosProvider not found')

@@ -7,8 +7,9 @@ import useForm from 'react-hook-form'
 //components
 import Layout from '../common/layout'
 //
-
+import {useTodosState} from 'context'
 const App: React.FC = props => {
+  const todos = useTodosState()
   //---------------------------------------------------------------------
   type FormData = {
     firstName: string
@@ -23,13 +24,10 @@ const App: React.FC = props => {
   })
   const {register, setValue, handleSubmit, errors} = useForm<FormData>()
   const onSubmit = handleSubmit(data => {
-    console.log(data)
     console.log(typeof data.age)
   })
   //---------------------------------------------------------------------
-  useEffect(() => {
-    console.log(setValue)
-  }, [])
+  useEffect(() => {}, [])
   //---------------------------------------------------------------------
   return (
     <Layout>

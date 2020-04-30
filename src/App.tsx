@@ -12,7 +12,6 @@ import markdown from './pages/module/markdown'
 import tab from './pages/ui/tab'
 //---------------------------------------------------------------------
 const App: React.FC = () => {
-  console.log(process.env.PUBLIC_URL)
   //---------------------------------------------------------------------
   //initalize
   //---------------------------------------------------------------------

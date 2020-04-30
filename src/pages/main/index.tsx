@@ -6,21 +6,47 @@ import React from 'react'
 import Layout from '../common/layout'
 import {lastArray} from '../../components/lib/util'
 import {TextField} from 'components/ui/TextField'
-//
-import {useTodosState} from 'context'
+import {useGlobalState, useGlobalDispatch} from 'contexts/global'
+//context
 
+//
 const App: React.FC = () => {
-  const todos = useTodosState()
-  console.log(todos)
   //---------------------------------------------------------------------
+  //context
+  const global = useGlobalState()
+  const dispatch = useGlobalDispatch()
   //initalize
   //useState
   const t1 = lastArray(['1', '2'])
   const t2 = lastArray(['a', 1])
   console.log(t2)
+
   //---------------------------------------------------------------------
   return (
     <Layout>
+      <p>
+        <button
+          onClick={() => {
+            dispatch({type: 'CREATE', info: {title: 'name'}})
+          }}>
+          ㅌㅔ스트
+        </button>
+      </p>
+      <p>
+        <button
+          onClick={() => {
+            dispatch({type: 'CREATE', info: {title: '1111name'}})
+          }}>
+          ㅌㅔ스트
+        </button>
+      </p>
+
+      <button
+        onClick={() => {
+          console.log(global)
+        }}>
+        확인
+      </button>
       <TextField
         text="타이틀111"
         handleChange={e => {
