@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter} from 'react-router-dom'
+import {TodosContextProvider} from 'context/'
 //App
 import App from './App'
 //style
@@ -11,7 +12,9 @@ import './styles/layout.scss'
 
 ReactDOM.render(
   <BrowserRouter basename={process.env.PUBLIC_URL}>
-    <App />
+    <TodosContextProvider>
+      <App />
+    </TodosContextProvider>
   </BrowserRouter>,
   document.getElementById('root')
 )

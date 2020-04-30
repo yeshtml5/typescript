@@ -7,9 +7,11 @@ import Layout from '../common/layout'
 import {lastArray} from '../../components/lib/util'
 import {TextField} from 'components/ui/TextField'
 //
+import {useTodosState} from 'context'
 
-interface IProps {}
 const App: React.FC = () => {
+  const todos = useTodosState()
+  console.log(todos)
   //---------------------------------------------------------------------
   //initalize
   //useState
