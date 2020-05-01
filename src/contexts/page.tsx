@@ -6,40 +6,39 @@ import React, {createContext, Dispatch, useReducer, useContext} from 'react'
 
 //export type
 //---------------------------------------------------------------------
-//type
-type GlobalState = object | undefined | null
-type Action = {type: 'CREATE'; info: object} | {type: 'UPDATE'; info: object} | {type: 'REMOVE'; info: object}
-type GlobalDispatch = Dispatch<Action>
-//context
+type PageState = {
+  title?: string
+  depth?: string[]
+}
+type Action = {type: 'UPDATE'; info: object} | {type: 'REMOVE'; info: object}
+type PageDispatch = Dispatch<Action>
 const stateContext = createContext<object | undefined>(undefined)
-const dispatchContext = createContext<GlobalDispatch | undefined>(undefined)
+const dispatchContext = createContext<PageDispatch | undefined>(undefined)
 //---------------------------------------------------------------------
 /**
  * reducer
  * @param {state}   : object
  * @param {action}  : action type
  */
-function globalReducer(state: GlobalState, action: Action): object {
+function reducer(state: PageState, action: Action): object {
   switch (action.type) {
-    case 'CREATE':
-      return action.info
     case 'UPDATE':
       return {...state, ...action.info}
     case 'REMOVE':
-      return {}
+      return state
     default:
       throw new Error('Unhandled action')
   }
 }
 //---------------------------------------------------------------------
 /**
- *  Provider
+ * @title Provider
  */
-export function GlobalContextProvider({children}: {children: React.ReactNode}) {
-  const defaultState = {
-    auth: '.../../'
+export function PageContextProvider({children}: {children: React.ReactNode}) {
+  const defaultState: PageState = {
+    title: 'title'
   }
-  const [state, dispatch] = useReducer(globalReducer, defaultState)
+  const [state, dispatch] = useReducer(reducer, [defaultState])
   return (
     <dispatchContext.Provider value={dispatch}>
       <stateContext.Provider value={state}>{children}</stateContext.Provider>
@@ -47,19 +46,18 @@ export function GlobalContextProvider({children}: {children: React.ReactNode}) {
   )
 }
 /**
- *  useState
- *
+ * useState
  */
-export function useGlobalState() {
+export function usePageState() {
   const state = useContext(stateContext)
-  if (!state) throw new Error('useGlobalState not found')
+  if (!state) throw new Error('usePageState not found')
   return state
 }
 /**
- *  useDispatch
+ * useDispatch
  */
-export function useGlobalDispatch() {
+export function usePageDispatch() {
   const dispatch = useContext(dispatchContext)
-  if (!dispatch) throw new Error('useGlobalDispatch not found')
+  if (!dispatch) throw new Error('usePageDispatch not found')
   return dispatch
 }
