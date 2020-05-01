@@ -2,34 +2,27 @@
  * Returns the sum of a and b
  * @param {}
  */
-import React, {createContext, Dispatch, useReducer, useState, useContext} from 'react'
+import React, {createContext, Dispatch, useReducer, useContext} from 'react'
 
 //export type
-export type Global = {}
-export type GlobalState = Global
+
 //---------------------------------------------------------------------
 type Action = {type: 'CREATE'; info: object} | {type: 'UPDATE'; info: object} | {type: 'REMOVE'; info: object}
 type GlobalDispatch = Dispatch<Action>
-const stateContext = createContext<GlobalState | undefined>(undefined)
+const stateContext = createContext<object | undefined>(undefined)
 const dispatchContext = createContext<GlobalDispatch | undefined>(undefined)
-
-const [user, setUser] = useState({
-  isAdmin: false,
-  nickname: '',
-  email: ''
-})
 //---------------------------------------------------------------------
 /**
  * reducer
- * @param state
- * @param action
+ * @param {state}   : object
+ * @param {action}  : action type
  */
 function globalReducer(state: object, action: Action): object {
   switch (action.type) {
     case 'CREATE':
-      console.log(state)
-
-      return state
+      return action.info
+    case 'UPDATE':
+      return Object.assign(state, action.info)
     case 'REMOVE':
       return state
     default:
@@ -42,7 +35,6 @@ function globalReducer(state: object, action: Action): object {
  */
 export function GlobalContextProvider({children}: {children: React.ReactNode}) {
   const [state, dispatch] = useReducer(globalReducer, {})
-
   return (
     <dispatchContext.Provider value={dispatch}>
       <stateContext.Provider value={state}>{children}</stateContext.Provider>
@@ -54,7 +46,7 @@ export function GlobalContextProvider({children}: {children: React.ReactNode}) {
  */
 export function useGlobalState() {
   const state = useContext(stateContext)
-  if (!state) throw new Error('TodosProvider not found')
+  if (!state) throw new Error('useGlobalState not found')
   return state
 }
 /**
@@ -62,6 +54,6 @@ export function useGlobalState() {
  */
 export function useGlobalDispatch() {
   const dispatch = useContext(dispatchContext)
-  if (!dispatch) throw new Error('TodosProvider not found')
+  if (!dispatch) throw new Error('useGlobalDispatch not found')
   return dispatch
 }

@@ -6,10 +6,12 @@ import styled from 'styled-components'
 import useForm from 'react-hook-form'
 //components
 import Layout from '../common/layout'
+import {useGlobalState} from 'contexts/global'
 //
-import {useTodosState} from 'context'
+
 const App: React.FC = props => {
-  const todos = useTodosState()
+  const global = useGlobalState()
+
   //---------------------------------------------------------------------
   type FormData = {
     firstName: string
@@ -27,7 +29,9 @@ const App: React.FC = props => {
     console.log(typeof data.age)
   })
   //---------------------------------------------------------------------
-  useEffect(() => {}, [])
+  useEffect(() => {
+    console.log(global)
+  }, [])
   //---------------------------------------------------------------------
   return (
     <Layout>

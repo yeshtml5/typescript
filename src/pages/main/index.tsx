@@ -19,15 +19,13 @@ const App: React.FC = () => {
   //useState
   const t1 = lastArray(['1', '2'])
   const t2 = lastArray(['a', 1])
-  console.log(t2)
-
   //---------------------------------------------------------------------
   return (
     <Layout>
       <p>
         <button
           onClick={() => {
-            dispatch({type: 'CREATE', info: {title: 'name'}})
+            dispatch({type: 'UPDATE', info: {title: 'name'}})
           }}>
           ㅌㅔ스트
         </button>
@@ -35,7 +33,7 @@ const App: React.FC = () => {
       <p>
         <button
           onClick={() => {
-            dispatch({type: 'CREATE', info: {title: '1111name'}})
+            dispatch({type: 'CREATE', info: {title: 'hey ', name: 111}})
           }}>
           ㅌㅔ스트
         </button>
