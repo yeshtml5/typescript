@@ -3,7 +3,7 @@
 import React from 'react'
 //component
 //layout
-import Header from './header'
+import Header from './content/header'
 //
 export default (props: any) => {
   //initalize

@@ -5,16 +5,12 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 //component
 //layout
-
-export default () => {
-  //initalize
-
-  //---------------------------------------------------------------------
+function Nav() {
   return (
-    <Nav>
+    <Content>
       <dl>
         <dt>
-          <Link to="/">UI1</Link> 
+          <Link to="/">Main</Link> 
         </dt>
       </dl>
       <dl>
@@ -28,11 +24,12 @@ export default () => {
           <Link to="/markdown">markdown</Link> 
         </dt>
       </dl>
-    </Nav>
+    </Content>
   )
 }
+export default Nav
 //---------------------------------------------------------------------
-const Nav = styled.nav`
+const Content = styled.nav`
   padding: 2rem;
   box-sizing: border-box;
   dl {

@@ -51,9 +51,7 @@ const App: React.FC = () => {
           }}>
           확인
         </button>
-
         {/* <counter startCount={3} /> */}
-        <h1>타이틀1</h1>
       </Content>
     </Layout>
   )

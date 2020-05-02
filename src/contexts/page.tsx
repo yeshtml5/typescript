@@ -7,7 +7,7 @@ import React, {createContext, Dispatch, useReducer, useContext} from 'react'
 //export type
 //---------------------------------------------------------------------
 type PageState = {
-  title?: string
+  title?: string | undefined
   depth?: string[]
 }
 type Action = {type: 'UPDATE'; info: object} | {type: 'REMOVE'; info: object}
@@ -35,10 +35,10 @@ function reducer(state: PageState, action: Action): object {
  * @title Provider
  */
 export function PageContextProvider({children}: {children: React.ReactNode}) {
-  const defaultState: PageState = {
+  const defaultState: any = {
     title: 'title'
   }
-  const [state, dispatch] = useReducer(reducer, [defaultState])
+  const [state, dispatch] = useReducer(reducer, defaultState)
   return (
     <dispatchContext.Provider value={dispatch}>
       <stateContext.Provider value={state}>{children}</stateContext.Provider>
