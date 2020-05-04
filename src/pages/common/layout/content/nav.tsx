@@ -15,6 +15,11 @@ function Nav() {
       </dl>
       <dl>
         <dt>
+          <Link to="/todo">Todo</Link> 
+        </dt>
+      </dl>
+      <dl>
+        <dt>
           <Link to="/button">Button</Link> 
         </dt>
         <dt>

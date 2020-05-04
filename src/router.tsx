@@ -7,7 +7,8 @@ import {Route, Switch, HashRouter} from 'react-router-dom'
 //Page
 import main from 'pages/main'
 import form from 'pages/form'
-import markdown from './pages/module/markdown'
+import markdown from 'pages/modules/markdown'
+import todo from 'pages/modules/todo'
 /*ui*/
 import tab from './pages/ui/tab'
 //---------------------------------------------------------------------
@@ -18,6 +19,7 @@ function Router() {
     <HashRouter basename="/">
       <Switch>
         <Route exact path="/" component={main} />
+        <Route exact path="/todo" component={todo} />
         <Route exact path="/form" component={form} />
         <Route exact path="/markdown" component={markdown} />
         <Route exact path="/tab" component={tab} />
