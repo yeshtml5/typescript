@@ -1,6 +1,6 @@
 import React from 'react'
 //context
-import {useTodosState} from '../context'
+import {useTodoState} from '../context'
 //conent
 import List from './list'
 
@@ -10,7 +10,7 @@ type Index = {
   title: string
 }
 function Index({name, title}: Index) {
-  const state = useTodosState()
+  const state = useTodoState()
   console.log(state)
   return (
     <React.Fragment>

@@ -10,19 +10,19 @@ export type Todo = {
   text: string
   done: boolean
 }
-export type TodosState = Todo[]
+export type TodoState = Todo[]
 //---------------------------------------------------------------------
 type Action = {type: 'CREATE'; text: string} | {type: 'TOGGLE'; id: number} | {type: 'REMOVE'; id: number}
-type TodosDispatch = Dispatch<Action>
-const TodosStateContext = createContext<TodosState | undefined>(undefined)
-const TodosDispatchContext = createContext<TodosDispatch | undefined>(undefined)
+type TodoDispatch = Dispatch<Action>
+const TodoStateContext = createContext<TodoState | undefined>(undefined)
+const TodoDispatchContext = createContext<TodoDispatch | undefined>(undefined)
 //---------------------------------------------------------------------
 /**
  * reducer
  * @param state
  * @param action
  */
-function todosReducer(state: TodosState, action: Action): TodosState {
+function todosReducer(state: TodoState, action: Action): TodoState {
   switch (action.type) {
     case 'CREATE':
       const nextId = Math.max(...state.map(todo => todo.id)) + 1
@@ -43,7 +43,7 @@ function todosReducer(state: TodosState, action: Action): TodosState {
 /**
  * @title Provider
  */
-export function TodosContextProvider({children}: {children: React.ReactNode}) {
+export function TodoContextProvider({children}: {children: React.ReactNode}) {
   const [todos, dispatch] = useReducer(todosReducer, [
     {
       id: 1,
@@ -63,24 +63,24 @@ export function TodosContextProvider({children}: {children: React.ReactNode}) {
   ])
 
   return (
-    <TodosDispatchContext.Provider value={dispatch}>
-      <TodosStateContext.Provider value={todos}>{children}</TodosStateContext.Provider>
-    </TodosDispatchContext.Provider>
+    <TodoDispatchContext.Provider value={dispatch}>
+      <TodoStateContext.Provider value={todos}>{children}</TodoStateContext.Provider>
+    </TodoDispatchContext.Provider>
   )
 }
 /**
  * useState
  */
-export function useTodosState() {
-  const state = useContext(TodosStateContext)
+export function useTodoState() {
+  const state = useContext(TodoStateContext)
   if (!state) throw new Error('TodosProvider not found')
   return state
 }
 /**
  * useDispatch
  */
-export function useTodosDispatch() {
-  const dispatch = useContext(TodosDispatchContext)
+export function useTodoDispatch() {
+  const dispatch = useContext(TodoDispatchContext)
   if (!dispatch) throw new Error('TodosProvider not found')
   return dispatch
 }
