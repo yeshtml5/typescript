@@ -8,8 +8,7 @@ function Add() {
   const state = useTodoState()
   const dispatch = useTodoDispatch()
   //---------------------------------------------------------------------
-  const addTodo = () => {
-    console.log(state)
+  const addTodo = (): void => {
     //dispatch({type: 'CREATE', info: {text: 'name'}})
   }
   return (
