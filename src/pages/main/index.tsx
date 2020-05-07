@@ -28,7 +28,7 @@ const App: React.FC = () => {
         <p>
           <button
             onClick={() => {
-              dispatch({type: 'REMOVE', info: {title: 'name'}})
+              dispatch({type: 'REMOVE', title: 'name'})
             }}>
             'REMOVE'
           </button>
@@ -36,7 +36,7 @@ const App: React.FC = () => {
         <p>
           <button
             onClick={() => {
-              dispatch({type: 'CREATE', info: {title: 'hey ', name: 111}})
+              dispatch({type: 'CREATE', title: 'hey ', name: 1111})
             }}>
             'CREATE'
           </button>
@@ -44,7 +44,7 @@ const App: React.FC = () => {
         <p>
           <button
             onClick={() => {
-              dispatch({type: 'UPDATE', info: {title: 'UPDATE ', name: 'react'}})
+              dispatch({type: 'UPDATE', title: 'UPDATE ', name: 'react'})
             }}>
             'UPDATE1'
           </button>

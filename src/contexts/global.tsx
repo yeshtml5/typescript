@@ -8,7 +8,7 @@ import React, {createContext, Dispatch, useReducer, useContext} from 'react'
 //---------------------------------------------------------------------
 //type
 type GlobalState = object | undefined | null
-type Action = {type: 'CREATE'; info: object} | {type: 'UPDATE'; info: object} | {type: 'REMOVE'; info: object | null}
+type Action = {type: 'CREATE'; title: string; name: any} | {type: 'UPDATE'; title: string; name: string} | {type: 'REMOVE'; title: string | null}
 type GlobalDispatch = Dispatch<Action>
 //context
 const stateContext = createContext<object | undefined>(undefined)
@@ -22,9 +22,9 @@ const dispatchContext = createContext<GlobalDispatch | undefined>(undefined)
 function globalReducer(state: GlobalState, action: Action): object {
   switch (action.type) {
     case 'CREATE':
-      return action.info
+      return action
     case 'UPDATE':
-      return {...state, ...action.info}
+      return {...state, ...action}
     case 'REMOVE':
       return {}
     default:
