@@ -1,6 +1,8 @@
 import React from 'react'
 //context
 import {useTodosState} from '../context'
+//conent
+import List from './list'
 
 //type
 type Index = {
@@ -12,6 +14,7 @@ function Index({name, title}: Index) {
   console.log(state)
   return (
     <React.Fragment>
+      <List title="d"></List>
       <h2>name: {name}</h2>
       <div>title: {title}</div>
       <div>{JSON.stringify(state, null, 1)}</div>
