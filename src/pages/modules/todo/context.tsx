@@ -22,6 +22,14 @@ const TodoDispatchContext = createContext<TodoDispatch | undefined>(undefined)
  * @param state
  * @param action
  */
+
+case 'CREATE':
+  return action.info
+case 'UPDATE':
+  return {...state, ...action.info}
+case 'REMOVE':
+  return {}
+  
 function todosReducer(state: TodoState, action: Action): TodoState {
   switch (action.type) {
     case 'CREATE':

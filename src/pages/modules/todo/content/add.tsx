@@ -8,14 +8,15 @@ function Add() {
   const state = useTodoState()
   const dispatch = useTodoDispatch()
   //---------------------------------------------------------------------
-  const addTodo: React.MouseEvent<HTMLButtonElement, MouseEvent> = () => {
-    alert('2')
+  const addTodo = () => {
+    console.log(state)
+    //dispatch({type: 'CREATE', info: {text: 'name'}})
   }
   return (
     <Content>
       <button
         onClick={() => {
-          alert('2')
+          addTodo()
         }}>
         클릭
       </button>

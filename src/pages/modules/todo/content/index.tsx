@@ -3,6 +3,7 @@ import React from 'react'
 import {useTodoState} from '../context'
 //conent
 import List from './list'
+import Add from './add'
 
 //type
 type Index = {
@@ -14,10 +15,8 @@ function Index({name, title}: Index) {
   console.log(state)
   return (
     <React.Fragment>
+      <Add />
       <List title="d"></List>
-      <h2>name: {name}</h2>
-      <div>title: {title}</div>
-      <div>{JSON.stringify(state, null, 1)}</div>
     </React.Fragment>
   )
 }

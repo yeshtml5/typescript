@@ -14,7 +14,7 @@ function Todo() {
   return (
     <TodoContextProvider>
       <Layout>
-        <h1>TodoS</h1>
+        <h1>Todo example</h1>
         <Index name="my_name" title="my_title" />
       </Layout>
     </TodoContextProvider>
