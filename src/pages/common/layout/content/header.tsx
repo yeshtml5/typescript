@@ -1,17 +1,16 @@
 /*
  */
 import React from 'react'
-
 //component
 //layout
-import Nav from './nav'
+import Navi from './navi'
 
 export default () => {
   //initalize
   //-----------------------------------------------------
   return (
     <header>
-      <Nav />
+      <Navi />
     </header>
   )
 }
