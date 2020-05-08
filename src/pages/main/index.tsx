@@ -7,14 +7,10 @@ import styled from 'styled-components'
 import Layout from 'pages/common/layout/'
 import {useGlobalState, useGlobalDispatch} from 'contexts/global'
 import Greetings from 'pages/guide/typescript'
-import {log} from 'components/lib/log'
 //context
 
 //
 const App: React.FC = () => {
-  //---------------------------------------------------------------------
-  log({title: '111', name: '손지안'})
-
   //context
   const global = useGlobalState()
   const dispatch = useGlobalDispatch()

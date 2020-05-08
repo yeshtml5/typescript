@@ -16,7 +16,6 @@ interface IProps {
 const Tab: React.FC<IProps> = props => {
   //---------------------------------------------------------------------
   //initalize
-  const tabInfo = [{title: '탭1'}, {title: '탭2'}, {title: '탭3'}]
   //useState
   useEffect(() => {
     console.log('1')
