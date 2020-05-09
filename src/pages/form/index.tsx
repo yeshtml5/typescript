@@ -73,7 +73,7 @@ const App: React.FC = props => {
 }
 export default App
 //----------------------------------------------------------
-const Form = styled.div`
+const Form = styled.section`
   form {
     > div {
       display: block;

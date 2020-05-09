@@ -1,7 +1,6 @@
 /*
  */
 import React, {useState} from 'react'
-import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 //component
 //layout
@@ -33,22 +32,7 @@ function Navi() {
       )
     })
   }
-  return <Content>{makeNavi()}</Content>
+  return <React.Fragment>{makeNavi()}</React.Fragment>
 }
 export default Navi
 //---------------------------------------------------------------------
-const Content = styled.nav`
-  padding: 2rem;
-  box-sizing: border-box;
-  dl {
-    display: block;
-    margin-bottom: 1rem;
-    dt {
-      display: block;
-      a {
-        display: block;
-        padding: 0.5rem 1rem;
-      }
-    }
-  }
-`

@@ -3,6 +3,7 @@
  *
  */
 import React from 'react'
+import styled from 'styled-components'
 //context
 import {TodoContextProvider} from './context'
 //layout
@@ -14,10 +15,14 @@ function Todo() {
   return (
     <TodoContextProvider>
       <Layout>
-        <h1>Todo example</h1>
-        <Index name="my_name" title="my_title" />
+        <Content>
+          <h1>Todo example</h1>
+          <Index name="my_name" title="my_title" />
+        </Content>
       </Layout>
     </TodoContextProvider>
   )
 }
 export default Todo
+//---------------------------------------------------------------------
+const Content = styled.section``
