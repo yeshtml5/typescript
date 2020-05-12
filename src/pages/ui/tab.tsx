@@ -1,19 +1,18 @@
 /**
  * @title
  */
-import * as React from 'react'
-import {useEffect} from 'react'
+import React, {useEffect} from 'react'
 //components
-import Layout from '../common/layout'
-import Guide from '../../components/ui/guide'
+import Layout from 'pages/common/layout'
+import Guide from 'pages/guide/typescript'
 //
-interface IProps {
+interface Tab {
   data: object
   onClick: Function
 }
 
 //---------------------------------------------------------------------
-const Tab: React.FC<IProps> = props => {
+const Tab: React.FC<Tab> = props => {
   //---------------------------------------------------------------------
   //initalize
   //useState
