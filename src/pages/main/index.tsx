@@ -9,7 +9,6 @@ import {useGlobalState, useGlobalDispatch} from 'contexts/global'
 import Greetings from 'pages/guide/typescript'
 //context
 
-//
 const App: React.FC = () => {
   //context
   const global = useGlobalState()
@@ -54,6 +53,26 @@ const App: React.FC = () => {
         </button>
         <h1>Todo 컴포넌트 제작중</h1>
         <div>test</div>
+        <div>
+          <button
+            onClick={() => {
+              alert('test')
+              let newVariable = window.navigator as any
+              if (newVariable.share) {
+                newVariable
+                  .share({
+                    title: 'title',
+                    text: 'description',
+                    url: 'https://soch.in//'
+                  })
+                  .then(() => console.log('Successful share'))
+              } else {
+                alert('share not supported')
+              }
+            }}>
+            webShare
+          </button>
+        </div>
         {/* <counter startCount={3} /> */}
       </Content>
     </Layout>
