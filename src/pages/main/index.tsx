@@ -56,16 +56,15 @@ const App: React.FC = () => {
         <div>
           <button
             onClick={() => {
-              alert('test')
               let newVariable = window.navigator as any
               if (newVariable.share) {
                 newVariable
                   .share({
-                    title: 'title',
-                    text: 'description',
-                    url: 'https://soch.in//'
+                    title: '공유하기 예제',
+                    text: '고별 지루하기 짝이없는 명제들 그래도 그것은 진실',
+                    url: 'https://naver.com'
                   })
-                  .then(() => console.log('Successful share'))
+                  .then(() => alert('공유하기'))
               } else {
                 alert('share not supported')
               }
