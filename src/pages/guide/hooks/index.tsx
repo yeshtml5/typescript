@@ -6,7 +6,7 @@ import Layout from 'pages/common/layout'
 
 const Hooks: React.FC = () => {
   const btnClick = () => {
-    console.log(useChanges())
+    console.log(useChanges)
   }
   return (
     <Layout>
