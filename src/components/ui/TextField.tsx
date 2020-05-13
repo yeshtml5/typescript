@@ -8,7 +8,7 @@ interface Props {
 }
 //---------------------------------------------------------------------
 
-export const TextField: React.FC<Props> = ({text, handleChange}) => {
+export const TextField: React.FC<Props> = ({text, handleChange}: Props) => {
   //---------------------------------------------------------------------
   const inputRef = useRef<HTMLInputElement>(null)
   const divRef = useRef<HTMLInputElement>(null)

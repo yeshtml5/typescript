@@ -93,3 +93,9 @@ export const phoneAddHypen = (phone: string): string => {
 export const makeEllipsis = (str: string, limit: number): string => {
   return (str = str.length > limit ? str.substr(0, limit) + '...' : str)
 }
+/**
+ * @function   \n br적용
+ */
+export const nl2br = (text: string): string => {
+  return text.replace(/(?:\r\n|\r|\n)/g, '<br />')
+}

@@ -1,7 +1,27 @@
+interface State {
+  changes: {[key: string]: number | string}
+}
+
+export {}
+// import React, {useCallback, useEffect} from 'react'
+
+// interface Props {
+//   changes: object
+//   callback: () => {}
+// }
+
+// const useChange: React.FC = ({changes}: Props) => {
+//   const [changes, setChanges] = useState({...defaultValue})
+//   console.log(callback)
+//   const onChange = () => {}
+//   return {onChange}
+// }
+// export default useChange
 /**
  * @title
  *
  *
+ * 
 //import
 import useChange from 'components/hooks/useChange'
 
@@ -23,7 +43,7 @@ function update(mode) {
 <input name="part" data-type="boolean" type="radio" value="true" onChange={onChange} />
 <input type="checkbox" data-type="array" name="age" value={[10, 11, 12, 13, 14]} onChange={onChange} /> 10대
  */
-export default {}
+
 // import {useCallback, useEffect, useState} from 'react'
 // //
 // const useChange = (callback, defaultValue) => {

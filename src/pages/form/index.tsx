@@ -20,11 +20,8 @@ const App: React.FC = props => {
   }
   //initalize
   //useState
-  const [state, setState] = useState(() => {
-    console.log(props)
-    return 0
-  })
-  const {register, setValue, handleSubmit, errors} = useForm<FormData>()
+
+  const {register, setValue, handleSubmit} = useForm<FormData>()
   const onSubmit = handleSubmit(data => {
     console.log(typeof data.age)
   })
