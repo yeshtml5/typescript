@@ -1,8 +1,20 @@
-interface State {
+import React, {useCallback, useEffect} from 'react'
+interface Changes {
   changes: {[key: string]: number | string}
 }
 
-export {}
+export const useChanges = ({changes}: Changes) => {
+  return {changes}
+}
+
+// const useChange: React.FC = ({changes}: Props) => {
+//   const [changes, setChanges] = useState({...defaultValue})
+//   console.log(callback)
+//   const onChange = () => {}
+//   return {onChange}
+// }
+// export default useChange
+
 // import React, {useCallback, useEffect} from 'react'
 
 // interface Props {

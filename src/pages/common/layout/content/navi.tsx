@@ -15,6 +15,7 @@ function Navi() {
   //const
   const [data] = useState<Navigations>([
     {title: 'Main', link: '/'},
+    {title: 'Hooks', link: '/hooks'},
     {title: 'Todo', link: '/todo'},
     {title: 'Button', link: '/button'},
     {title: 'Form', link: '/form'},
