@@ -9,6 +9,7 @@ type Action = {type: 'UPDATE'; info: object}
 
 export const useChanges = (callback: any, defaultValue: any) => {
   //reducer
+  const [state, dispatch] = useReducer(reducer, defaultValue)
   //state
   const [changes, setChanges] = useState<any>({...defaultValue})
 
@@ -20,6 +21,8 @@ export const useChanges = (callback: any, defaultValue: any) => {
   function reducer(state: any, action: Action): object {
     switch (action.type) {
       case 'UPDATE':
+        const info = {...state, ...action.info}
+        if (callback !== undefined && typeof callback === 'function') callback(info)
         return {...state, ...action.info}
 
       default:
@@ -27,14 +30,16 @@ export const useChanges = (callback: any, defaultValue: any) => {
     }
   }
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const _info = {...changes, [event.target.name]: event.target.value}
-    console.log(_info)
-    console.log(changes)
-    setChanges({...changes, [event.target.name]: event.target.value})
-    // dispatch({type: 'UPDATE', {...defaultValue})
+    event.persist()
+    let _val = event.target.type === 'checkbox' && event.target.value === 'on' ? event.target.checked : event.target.value
+
+    const _info = {...state, [event.target.name]: _val}
+
+    // setChanges({...changes, [event.target.name]: event.target.value})
+    dispatch({type: 'UPDATE', info: {..._info}})
   }
 
-  return {onChange, setChanges, changes}
+  return {onChange, setChanges, state}
 }
 
 /**
