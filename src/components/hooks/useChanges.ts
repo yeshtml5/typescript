@@ -1,4 +1,4 @@
-import React, {useState, useReducer, useEffect} from 'react'
+import React, {useReducer} from 'react'
 interface DefaultValue {
   callback: () => {}
   title: string
@@ -11,8 +11,6 @@ export const useChanges = (callback: any, defaultValue: any) => {
   //reducer
   const [state, dispatch] = useReducer(reducer, defaultValue)
   //state
-  const [changes, setChanges] = useState<any>({...defaultValue})
-
   /**
    * reducer
    * @param {state}   : object
@@ -24,7 +22,6 @@ export const useChanges = (callback: any, defaultValue: any) => {
         const info = {...state, ...action.info}
         if (callback !== undefined && typeof callback === 'function') callback(info)
         return {...state, ...action.info}
-
       default:
         throw new Error('Unhandled action')
     }
@@ -39,7 +36,7 @@ export const useChanges = (callback: any, defaultValue: any) => {
     dispatch({type: 'UPDATE', info: {..._info}})
   }
 
-  return {onChange, setChanges, state}
+  return {onChange, state}
 }
 
 /**
