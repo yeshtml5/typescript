@@ -1,34 +1,42 @@
-import React, {useCallback, useEffect} from 'react'
-interface Changes {
-  changes: {[key: string]: number | string}
+import React, {useState, useReducer, useEffect} from 'react'
+interface DefaultValue {
+  callback: () => {}
+  title: string
+  //changes?: {key: string}
+}
+//type
+type Action = {type: 'UPDATE'; info: object}
+
+export const useChanges = (callback: any, defaultValue: any) => {
+  //reducer
+  //state
+  const [changes, setChanges] = useState<any>({...defaultValue})
+
+  /**
+   * reducer
+   * @param {state}   : object
+   * @param {action}  : action type
+   */
+  function reducer(state: any, action: Action): object {
+    switch (action.type) {
+      case 'UPDATE':
+        return {...state, ...action.info}
+
+      default:
+        throw new Error('Unhandled action')
+    }
+  }
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const _info = {...changes, [event.target.name]: event.target.value}
+    console.log(_info)
+    console.log(changes)
+    setChanges({...changes, [event.target.name]: event.target.value})
+    // dispatch({type: 'UPDATE', {...defaultValue})
+  }
+
+  return {onChange, setChanges, changes}
 }
 
-export const useChanges = ({changes}: Changes) => {
-  return {changes}
-}
-
-// const useChange: React.FC = ({changes}: Props) => {
-//   const [changes, setChanges] = useState({...defaultValue})
-//   console.log(callback)
-//   const onChange = () => {}
-//   return {onChange}
-// }
-// export default useChange
-
-// import React, {useCallback, useEffect} from 'react'
-
-// interface Props {
-//   changes: object
-//   callback: () => {}
-// }
-
-// const useChange: React.FC = ({changes}: Props) => {
-//   const [changes, setChanges] = useState({...defaultValue})
-//   console.log(callback)
-//   const onChange = () => {}
-//   return {onChange}
-// }
-// export default useChange
 /**
  * @title
  *
