@@ -14,12 +14,14 @@ type Index = {
 function Index({name, title}: Index) {
   const state = useTodoState()
   console.log(state)
-
+  fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => console.log(json))
   //makeList()
   const makeList = () => {
     return state.map((list, index) => {
       return (
-        <dl>
+        <dl key={index}>
           <dt>{list.text}</dt>
         </dl>
       )

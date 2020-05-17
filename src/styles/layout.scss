@@ -43,7 +43,34 @@
               text-decoration: underline;
               cursor: pointer;
             }
+            &:after {
+              position: absolute;
+              right: 10px;
+              content: '>';
+            }
           }
+        }
+      }
+      footer {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        min-height: 100px;
+        height: 30px;
+        padding-left: 30px;
+        color: #b7c0cd;
+        background: #fff0;
+        a {
+          display: block;
+          margin-bottom: 8px;
+          font-size: 12px;
+          text-decoration: underline;
+        }
+        dl {
+          display: inline-block;
+        }
+        p {
+          font-size: 12px;
         }
       }
     }
