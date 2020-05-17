@@ -2,17 +2,17 @@ import React, {useReducer} from 'react'
 
 //type
 type Action = {type: 'UPDATE'; info: object}
-//---------------------------------------------------------------------
 /**
  * @function onChange 이벤트에 key:value state관리
  * @param callback
  * @param defaultValue
  */
-export const useChanges = (callback: any, defaultValue: any) => {
+export const useChanges = (callback: {}, defaultValue?: {}) => {
+  //useReducer
+  const [changes, dispatch] = useReducer(reducer, defaultValue || {})
+  //---------------------------------------------------------------------
   //reducer
-  const [changes, dispatch] = useReducer(reducer, defaultValue)
-  //reducer
-  function reducer(changes: any, action: Action): object {
+  function reducer(changes: {}, action: Action): any {
     switch (action.type) {
       case 'UPDATE':
         const info = {...changes, ...action.info}

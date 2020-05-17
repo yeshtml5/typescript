@@ -6,21 +6,34 @@ import Layout from 'pages/common/layout'
 import {useChanges} from 'components/hooks/useHooks'
 
 //type
-type Update = {
-  mode: string
-}
+
 const Login: React.FC = () => {
   //hooks
-  const {onChange} = useChanges(update, {onChange: -1})
+  const {changes, onChange} = useChanges(update)
   //function
-  function update(mode: string) {
-    console.log(mode)
+  function update(mode: any) {
+    //console.log(mode.password)
     // switch (true) {
     //   case mode.onChange !== undefined:
     //     console.log(mode)
     //     break
     // }
   }
+  //submit
+  const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    //validation
+    const {id, password} = changes
+    if (!id) {
+      alert('id가 없습니다.')
+      return
+    }
+    if (!password) {
+      alert('password 없습니다.')
+      return
+    }
+    alert(JSON.stringify(changes, null, 1))
+  }
+
   //---------------------------------------------------------------------
   return (
     <Layout>
@@ -35,7 +48,7 @@ const Login: React.FC = () => {
             <span>패스워드</span>
             <input id="password" type="password" name="password" onChange={onChange} />
           </label>
-          <button>전송</button>
+          <button onClick={onSubmit}>전송</button>
         </div>
       </Content>
     </Layout>
