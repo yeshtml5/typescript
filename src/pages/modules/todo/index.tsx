@@ -9,7 +9,7 @@ import {TodoContextProvider} from './context'
 //layout
 import Layout from 'pages/common/layout'
 //content
-import Index from './content/index'
+import TodoIndex from './content/index'
 
 function Todo() {
   return (
@@ -17,7 +17,7 @@ function Todo() {
       <Layout>
         <Content>
           <h1>Todo example</h1>
-          <Index name="my_name" title="my_title" />
+          <TodoIndex name="my_name" title="my_title" />
         </Content>
       </Layout>
     </TodoContextProvider>

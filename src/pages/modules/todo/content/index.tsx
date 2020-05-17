@@ -11,7 +11,8 @@ type Index = {
   title: string
 }
 
-function Index({name, title}: Index) {
+const Todo: React.FC<Index> = ({name, title}) => {
+  console.log(name)
   const state = useTodoState()
   console.log(state)
   fetch('https://jsonplaceholder.typicode.com/todos/1')
@@ -36,4 +37,4 @@ function Index({name, title}: Index) {
     </React.Fragment>
   )
 }
-export default Index
+export default Todo
