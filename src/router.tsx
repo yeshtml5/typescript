@@ -11,8 +11,8 @@ import markdown from 'pages/modules/markdown'
 import todo from 'pages/modules/todo'
 import login from 'pages/login'
 //guide
+import guide from 'pages/guide'
 import hooks from 'pages/guide/hooks'
-
 /*ui*/
 import tab from './pages/ui/tab'
 //---------------------------------------------------------------------
@@ -27,8 +27,10 @@ function Router() {
         <Route exact path="/form" component={form} />
         <Route exact path="/markdown" component={markdown} />
         <Route exact path="/tab" component={tab} />
-        <Route exact path="/hooks" component={hooks} />
         <Route exact path="/login" component={login} />
+        {/* 가이드 */}
+        <Route exact path="/guide" component={guide} />
+        <Route exact path="/hooks" component={hooks} />
       </Switch>
     </HashRouter>
   )
