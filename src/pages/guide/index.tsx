@@ -1,16 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 //content
-import Hooks from './hooks'
+import Layout from 'pages/common/layout'
 //interface
 interface Props {
   type: string
 }
 const Guide: React.FC<Props> = ({type}) => {
+  //---------------------------------------------------------------------
   return (
-    <React.Fragment>
-      <h1>type: {type}</h1>
-      <Hooks mode="cap" type="hooks" />
-    </React.Fragment>
+    <Layout>
+      <Content>111</Content>
+    </Layout>
   )
 }
 export default Guide
+//---------------------------------------------------------------------
+const Content = styled.section``
