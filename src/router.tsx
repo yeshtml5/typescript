@@ -30,6 +30,8 @@ function Router() {
         <Route exact path="/login" component={login} />
         {/* 가이드 */}
         <Route exact path="/guide" component={guide} />
+        <Route exact path="/guide/:id" component={guide} />
+
         <Route exact path="/hooks" component={hooks} />
       </Switch>
     </HashRouter>

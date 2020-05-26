@@ -2,22 +2,35 @@ import React from 'react'
 import styled from 'styled-components'
 //content
 import Layout from 'pages/common/layout'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCoffee} from '@fortawesome/free-solid-svg-icons'
+//pages
+import Hooks from './hooks'
 //interface
 interface Props {
   type: string
+  match: {
+    path: string
+    url: string
+    params: {
+      id: string
+    }
+  }
 }
-const Guide: React.FC<Props> = ({type}) => {
+const Guide: React.FC<Props> = ({match, type}) => {
+  console.log(match.params)
   //---------------------------------------------------------------------
+  const makeContents = (mode: string = '') => {
+    switch (true) {
+      case mode === 'hooks':
+        return <Hooks type="" />
+        break
+      default:
+        return <h1>값이 없습니다</h1>
+        break
+    }
+  }
   return (
     <Layout>
-      <Content>
-        <span>
-          <FontAwesomeIcon icon={faCoffee} />
-        </span>
-        <h1>NODE_ENV: {process.env.NODE_ENV + ''}</h1>
-      </Content>
+      <Content>{makeContents(match.params.id)}</Content>
     </Layout>
   )
 }

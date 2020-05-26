@@ -54,13 +54,15 @@
       footer {
         display: block;
         position: absolute;
+        left: 30px;
         bottom: 30px;
-        width: 250px;
-        text-align: center;
+        text-align: left;
         color: #b7c0cd;
         background: #fff0;
         a {
           display: inline-block;
+          margin-left: -10px;
+          margin-right: 10px;
           padding: 10px;
           margin-bottom: 8px;
           font-size: 20px;
@@ -70,7 +72,7 @@
         }
         p {
           width: 100%;
-          text-align: center;
+
           font-size: 12px;
         }
       }

@@ -17,11 +17,11 @@ function Navi() {
     {title: 'Main', link: '/'},
     {title: 'Login', link: '/login'},
     {title: 'Guide', link: '/guide'},
-    {title: 'Hooks', link: '/hooks'},
-    {title: 'Todo', link: '/todo'},
-    {title: 'Button', link: '/button'},
-    {title: 'Form', link: '/form'},
-    {title: 'markdown', link: '/markdown'}
+    {title: 'Hooks', link: '/guide/hooks'},
+    {title: 'Todo', link: '/todo'}
+    // {title: 'Button', link: '/button'},
+    // {title: 'Form', link: '/form'},
+    // {title: 'markdown', link: '/markdown'}
   ])
   //makeObject
   const makeNavi = (): JSX.Element[] => {
