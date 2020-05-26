@@ -32,9 +32,7 @@ const App: React.FC = () => {
           <button
             onClick={() => {
               dispatch({type: 'CREATE', title: 'hey ', name: 1111})
-            }}>
-            'CREATE'
-          </button>
+            }}></button>
         </p>
         <p>
           <button

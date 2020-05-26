@@ -10,7 +10,9 @@ const Guide: React.FC<Props> = ({type}) => {
   //---------------------------------------------------------------------
   return (
     <Layout>
-      <Content>111</Content>
+      <Content>
+        <h1>NODE_ENV: {process.env.NODE_ENV + ''}</h1>
+      </Content>
     </Layout>
   )
 }
