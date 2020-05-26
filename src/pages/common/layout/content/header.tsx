@@ -6,7 +6,10 @@ import React from 'react'
 import Navi from './navi'
 //static
 import Logo from 'static/svg/typescript.svg'
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faGithub} from '@fortawesome/free-brands-svg-icons'
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import {faCamera} from '@fortawesome/free-solid-svg-icons'
 export default () => {
   //initalize
   //-----------------------------------------------------
@@ -18,10 +21,18 @@ export default () => {
       </div>
       <Navi />
       <footer>
-        <a href="mailto:yeshtml5@gmail.com">mail: yeshtml5@gmail.com</a>
-        <a href="https://github.com/yeshtml5/typescript">github: github.com/yeshtml5/typescript</a>
+        <a href="mailto:yeshtml5@gmail.com">
+          <FontAwesomeIcon icon={faEnvelope} />
+        </a>
+        <a href="https://github.com/yeshtml5/typescript" target="_blank">
+          <FontAwesomeIcon icon={faGithub} />
+        </a>
+        <a href="https://unsplash.com/@yeshtml5" target="_blank">
+          <FontAwesomeIcon icon={faCamera} />
+        </a>
         <p>
-          © 2020 Yeshtml5, <br />
+          © 2020 Yeshtml5,
+          <br />
           ALL RIGHTS RESERVED.
         </p>
       </footer>
