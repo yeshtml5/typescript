@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import styled from 'styled-components'
 //layout
 import Layout from 'pages/common/layout'
@@ -9,6 +9,9 @@ import {useChanges} from 'components/hooks/useHooks'
 
 const Login: React.FC = () => {
   //hooks
+  const refId = useRef<HTMLInputElement>(null)
+  const refPassword = useRef<HTMLInputElement>(null)
+
   const {changes, onChange} = useChanges(update)
   //function
   function update(mode: any) {
@@ -19,16 +22,22 @@ const Login: React.FC = () => {
     //     break
     // }
   }
+  //validation
+  const setFocus = (ref: React.RefObject<HTMLInputElement>) => {
+    if (ref && ref.current) ref.current.focus()
+  }
   //submit
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     //validation
     const {id, password} = changes
     if (!id) {
       alert('id가 없습니다.')
+      setFocus(refId)
       return
     }
     if (!password) {
       alert('password 없습니다.')
+      setFocus(refPassword)
       return
     }
     alert(JSON.stringify(changes, null, 1))
@@ -42,11 +51,11 @@ const Login: React.FC = () => {
         <div className="in_wrap">
           <label htmlFor="id">
             <span>아이디</span>
-            <input id="id" type="text" name="id" onChange={onChange} />
+            <input ref={refId} id="id" type="text" name="id" onChange={onChange} />
           </label>
           <label htmlFor="password">
             <span>패스워드</span>
-            <input id="password" type="password" name="password" onChange={onChange} />
+            <input ref={refPassword} id="password" type="password" name="password" onChange={onChange} />
           </label>
           <button onClick={onSubmit}>전송</button>
         </div>
