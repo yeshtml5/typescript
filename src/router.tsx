@@ -10,6 +10,7 @@ import form from 'pages/form'
 import markdown from 'pages/modules/markdown'
 import todo from 'pages/modules/todo'
 import login from 'pages/login'
+import kakaoMap from 'components/lib/kakao.map'
 //guide
 import guide from 'pages/guide'
 import hooks from 'pages/guide/hooks'
@@ -28,6 +29,8 @@ function Router() {
         <Route exact path="/markdown" component={markdown} />
         <Route exact path="/tab" component={tab} />
         <Route exact path="/login" component={login} />
+        <Route exact path="/kakao-map" component={kakaoMap} />
+
         {/* 가이드 */}
         <Route exact path="/guide" component={guide} />
         <Route exact path="/guide/:id" component={guide} />

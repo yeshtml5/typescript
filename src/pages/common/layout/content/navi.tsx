@@ -18,7 +18,9 @@ function Navi() {
     {title: 'Login', link: '/login'},
     {title: 'Guide', link: '/guide'},
     {title: 'Hooks', link: '/guide/hooks'},
-    {title: 'Todo', link: '/todo'}
+    {title: 'Todo', link: '/todo'},
+    {title: 'Kakao-map', link: '/kakao-map'}
+
     // {title: 'Button', link: '/button'},
     // {title: 'Form', link: '/form'},
     // {title: 'markdown', link: '/markdown'}
