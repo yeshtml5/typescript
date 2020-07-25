@@ -9,7 +9,6 @@ import Header from './content/header'
 export default (props: any) => {
   //initalize
   const {children} = props
-  //---------------------------------------------------------------------
   return (
     <main>
       <Header />
