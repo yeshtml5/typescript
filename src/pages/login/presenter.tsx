@@ -1,47 +1,43 @@
 import React, {useRef} from 'react'
 import styled from 'styled-components'
-//layout
-import Layout from 'pages/common/layout'
-//hooks
+import {Layout} from 'pages'
 import {useChanges} from 'components/hooks/useHooks'
 
-//type
-
-const Login: React.FC = () => {
+type Props = {
+  onUpdate: (data: object) => void
+  onSubmit: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+}
+function Presenter({onUpdate, onSubmit}: Props) {
   //hooks
   const refId = useRef<HTMLInputElement>(null)
   const refPassword = useRef<HTMLInputElement>(null)
+  const {changes, onChange} = useChanges(onUpdate)
 
-  const {changes, onChange} = useChanges(update)
-  //function
-  function update(mode: any) {
-    //console.log(mode.password)
-    // switch (true) {
-    //   case mode.onChange !== undefined:
-    //     console.log(mode)
-    //     break
-    // }
-  }
   //validation
   const setFocus = (ref: React.RefObject<HTMLInputElement>) => {
     if (ref && ref.current) ref.current.focus()
   }
   //submit
-  const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    //validation
-    const {id, password} = changes
-    if (!id) {
-      alert('id가 없습니다.')
-      setFocus(refId)
-      return
-    }
-    if (!password) {
-      alert('password 없습니다.')
-      setFocus(refPassword)
-      return
-    }
-    alert(JSON.stringify(changes, null, 1))
-  }
+  // const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+
+  //   //validation
+  //   const {id, password} = changes
+  //   if (!id) {
+  //     alert('id가 없습니다.')
+  //     setFocus(refId)
+  //     return
+  //   }
+  //   if (!password) {
+  //     alert('password 없습니다.')
+  //     setFocus(refPassword)
+  //     return
+  //   }
+  //   const auth = firebase.auth()
+  //   auth.signInWithEmailAndPassword(id, password).then(async res => {
+  //     console.log(res)
+  //   })
+  //   alert(JSON.stringify(changes, null, 1))
+  // }
 
   //---------------------------------------------------------------------
   return (
@@ -63,7 +59,7 @@ const Login: React.FC = () => {
     </Layout>
   )
 }
-export default Login
+export default Presenter
 //---------------------------------------------------------------------
 const Content = styled.section`
   h1 {

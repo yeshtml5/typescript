@@ -2,9 +2,8 @@
  * @title
  */
 import React from 'react'
-//router
-import Router from 'router'
-//---------------------------------------------------------------------
+import {Router} from 'lib/index'
+
 function App() {
   return <Router />
 }

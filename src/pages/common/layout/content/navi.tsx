@@ -2,9 +2,7 @@
  */
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-//component
-//layout
-//type
+
 type Navigation = {
   title: string
   link: string
@@ -17,9 +15,7 @@ function Navi() {
     {title: 'Main', link: '/'},
     {title: 'Login', link: '/login'},
     {title: 'Guide', link: '/guide'},
-    {title: 'Hooks', link: '/guide/hooks'},
-    {title: 'Todo', link: '/todo'},
-    {title: 'Kakao-map', link: '/kakao-map'}
+    {title: 'Hooks', link: '/guide/hooks'}
 
     // {title: 'Button', link: '/button'},
     // {title: 'Form', link: '/form'},

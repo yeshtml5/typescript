@@ -2,14 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter} from 'react-router-dom'
 //contexts
-import {GlobalContextProvider} from 'contexts/global'
-import {PageContextProvider} from 'contexts/page'
+import {GlobalContextProvider, PageContextProvider} from 'contexts'
 //App
 import App from './App'
 //style
-import './styles/common.scss'
-import './styles/layout.scss'
-//---------------------------------------------------------------------
+import 'static/styles/common.scss'
+import 'static/styles/layout.scss'
+
 ReactDOM.render(
   <BrowserRouter basename={process.env.PUBLIC_URL}>
     <GlobalContextProvider>

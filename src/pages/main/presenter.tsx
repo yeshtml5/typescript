@@ -3,22 +3,17 @@
  */
 import React from 'react'
 import styled from 'styled-components'
-//components
-import Layout from 'pages/common/layout/'
+import {Layout} from 'pages'
 import {useGlobalState, useGlobalDispatch} from 'contexts/global'
-import Greetings from 'pages/guide/typescript'
-//context
 
-const App: React.FC = () => {
+function Presenter() {
   //context
   const global = useGlobalState()
   const dispatch = useGlobalDispatch()
   //initalize
   //useState
-  //---------------------------------------------------------------------
   return (
     <Layout>
-      <Greetings name="wanhwi" mark="$" />
       <Content>
         <p>
           <button
@@ -75,8 +70,7 @@ const App: React.FC = () => {
     </Layout>
   )
 }
-export default App
-//---------------------------------------------------------------------
+export default Presenter
 
 const Content = styled.section`
   p {

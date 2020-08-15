@@ -1,10 +1,5 @@
-/*
- */
 import React from 'react'
-//component
-//layout
 import Navi from './navi'
-//static
 import Logo from 'static/svg/typescript.svg'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
@@ -12,7 +7,6 @@ import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import {faCamera} from '@fortawesome/free-solid-svg-icons'
 export default () => {
   //initalize
-  //-----------------------------------------------------
   return (
     <header>
       <div className="logo">
