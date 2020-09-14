@@ -7,3 +7,4 @@ export {default as Main} from './main'
 // Pages
 export {default as Login} from './login'
 export {default as Guide} from './guide'
+export {default as Search} from './search'
