@@ -5,18 +5,19 @@ import React from 'react'
 import styled from 'styled-components'
 import {Layout} from 'pages'
 import {useGlobalState, useGlobalDispatch} from 'contexts/global'
-
+import {useKey, useGeolocation} from 'react-use'
 function Presenter() {
-  //context
-
-  //initalize
-  //useState
+  const state = useGeolocation()
+  useKey('1', () => {
+    console.log('test')
+  })
   return (
     <Layout>
       <Content>
         <p>검색영역</p>
         <input type="text" placeholder={'값을 입력해주세요'} />
         <button>버튼</button>
+        <p> {JSON.stringify(state, null, 2)}</p>
       </Content>
     </Layout>
   )
@@ -24,6 +25,7 @@ function Presenter() {
 export default Presenter
 
 const Content = styled.section`
+  height: 3000px;
   p {
     margin-bottom: 10px;
   }

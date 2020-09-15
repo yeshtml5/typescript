@@ -36,6 +36,7 @@ git push -f origin master
 - moment
 - lodash
 - chalk
+- react-use <https://www.npmjs.com/package/react-use>
 - <https://react-hook-form.com>
 
 ---

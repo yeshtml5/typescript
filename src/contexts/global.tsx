@@ -37,7 +37,7 @@ function globalReducer(state: GlobalState, action: Action): object {
  */
 export function GlobalContextProvider({children}: {children: React.ReactNode}) {
   const defaultState = {
-    auth: 'sfdkjsdlfj43w43232423'
+    auth: 'defaultState_title_string'
   }
   const [state, dispatch] = useReducer(globalReducer, defaultState)
   return (

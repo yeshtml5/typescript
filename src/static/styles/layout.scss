@@ -81,6 +81,7 @@
       flex-grow: 1; /* Set the middle element to grow and stretch */
       padding: 20px;
       background: #eff3f6;
+      overflow-y: scroll;
       section {
         position: relative;
         border: 1px solid #e6eaee;

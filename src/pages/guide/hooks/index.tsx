@@ -1,16 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 import {useChanges} from 'components/hooks/useChanges'
-
 type Type = {
   mode?: string
 }
 interface Props extends Type {
   type?: string
+  useGlobalValue: any
   method?: () => void
   clickHandler?: (event: React.MouseEvent) => void
 }
 
-function Hooks({type, mode, method, clickHandler}: Props) {
+function Hooks({useGlobalValue, type, mode, method, clickHandler}: Props) {
+  const [value, setValue] = useGlobalValue()
+
   const {state, onChange} = useChanges(update, {onChange: '-1'})
   const btnClick = () => {
     console.log(state)
@@ -20,8 +23,10 @@ function Hooks({type, mode, method, clickHandler}: Props) {
     console.log(data)
   }
   return (
-    <React.Fragment>
+    <Content>
       <div>
+        <button onClick={() => setValue({...value, type: 'apple'})}>오브텍트</button>
+        <button onClick={() => setValue(value + 1)}>+</button>
         <h1>type: {type}</h1>
         <h1>mode: {mode}</h1>
         <button onClick={clickHandler}>버튼</button>
@@ -29,8 +34,17 @@ function Hooks({type, mode, method, clickHandler}: Props) {
         <input type="checkbox" name="box" onChange={onChange} />
       </div>
       <button onClick={btnClick}>버튼클릭</button>
-    </React.Fragment>
+    </Content>
   )
 }
 
 export default Hooks
+
+const Content = styled.section`
+  button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #111;
+    color: #fff;
+  }
+`
