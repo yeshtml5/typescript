@@ -6,6 +6,7 @@
     box-sizing: border-box;
     > header {
       width: 250px; /* A fixed width as the default */
+      min-width: 250px;
       height: 100vh;
       background: #222c3c;
       .logo {
