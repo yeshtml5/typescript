@@ -1,36 +1,41 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Presenter from './presenter'
-
-import firebase from 'constpack/env'
+import {authService} from 'constpack'
+import {useLocation} from 'react-router-dom'
 
 export default function Container() {
   //
-  console.log(firebase)
-  const [loginInfo, setLoginInfo] = useState(null)
+  type Login = {
+    email: string
+    password: string
+  }
+  let location = useLocation()
+
+  useEffect(() => {
+    console.log(location)
+  }, [location])
+
+  const [loginInfo, setLoginInfo] = useState<Login | undefined>(undefined)
   const onUpdate = data => {
     // console.log(data)
-    setLoginInfo(data)
+    //setLoginInfo(data)
   }
-  const onSubmit = event => {
-    console.log(loginInfo)
-    console.log(event)
-    // //validation
-    // const {id, password} = changes
-    // if (!id) {
-    //   alert('id가 없습니다.')
-    //   setFocus(refId)
-    //   return
-    // }
-    // if (!password) {
-    //   alert('password 없습니다.')
-    //   setFocus(refPassword)
-    //   return
-    // }
-    // const auth = firebase.auth()
-    // auth.signInWithEmailAndPassword(id, password).then(async res => {
-    //   console.log(res)
-    // })
-    // alert(JSON.stringify(changes, null, 1))
+  const onSubmit = async event => {
+    try {
+      if (!loginInfo) return
+      console.table(loginInfo)
+      const {email, password} = loginInfo
+      if (!authService.currentUser) {
+        // create user
+        const data = await authService.createUserWithEmailAndPassword(email, password)
+        console.log(data)
+      } else {
+        const data1 = await authService.signInWithEmailAndPassword(email, password)
+        console.log(data1)
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
   return <Presenter onUpdate={onUpdate} onSubmit={onSubmit} />
 }

@@ -3,6 +3,7 @@ export * from './color'
 
 // 환경설정 (API)통신
 export * from './env'
+export * from './env/firebase'
 export {default as Firebase} from './env/firebase'
 
 // Variables

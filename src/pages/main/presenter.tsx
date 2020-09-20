@@ -2,16 +2,15 @@
  * @title
  */
 import React from 'react'
+
 import styled from 'styled-components'
 import {Layout} from 'pages'
 import {useGlobalState, useGlobalDispatch} from 'contexts/global'
 
 function Presenter() {
-  //context
   const global = useGlobalState()
   const dispatch = useGlobalDispatch()
-  //initalize
-  //useState
+
   return (
     <Layout>
       <Content>

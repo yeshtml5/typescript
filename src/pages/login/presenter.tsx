@@ -9,7 +9,7 @@ type Props = {
 }
 function Presenter({onUpdate, onSubmit}: Props) {
   //hooks
-  const refId = useRef<HTMLInputElement>(null)
+  const refEmail = useRef<HTMLInputElement>(null)
   const refPassword = useRef<HTMLInputElement>(null)
   const {changes, onChange} = useChanges(onUpdate)
 
@@ -17,27 +17,6 @@ function Presenter({onUpdate, onSubmit}: Props) {
   const setFocus = (ref: React.RefObject<HTMLInputElement>) => {
     if (ref && ref.current) ref.current.focus()
   }
-  //submit
-  // const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-
-  //   //validation
-  //   const {id, password} = changes
-  //   if (!id) {
-  //     alert('id가 없습니다.')
-  //     setFocus(refId)
-  //     return
-  //   }
-  //   if (!password) {
-  //     alert('password 없습니다.')
-  //     setFocus(refPassword)
-  //     return
-  //   }
-  //   const auth = firebase.auth()
-  //   auth.signInWithEmailAndPassword(id, password).then(async res => {
-  //     console.log(res)
-  //   })
-  //   alert(JSON.stringify(changes, null, 1))
-  // }
 
   //---------------------------------------------------------------------
   return (
@@ -46,8 +25,8 @@ function Presenter({onUpdate, onSubmit}: Props) {
         <h1>Login</h1>
         <div className="in_wrap">
           <label htmlFor="id">
-            <span>아이디</span>
-            <input ref={refId} id="id" type="text" name="id" onChange={onChange} />
+            <span>이메일</span>
+            <input ref={refEmail} id="email" type="text" name="email" onChange={onChange} />
           </label>
           <label htmlFor="password">
             <span>패스워드</span>
