@@ -1,11 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter} from 'react-router-dom'
-//contexts
 import {GlobalContextProvider, PageContextProvider} from 'contexts'
-//App
 import App from './App'
-//style
+import Firebase from 'constpack/env/firebase'
+
 import 'static/styles/common.scss'
 import 'static/styles/layout.scss'
 

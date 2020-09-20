@@ -1,15 +1,11 @@
 import React, {useState} from 'react'
 import Presenter from './presenter'
 
-import 'firebase/auth'
-import 'firebase/firestore'
-import firebase from 'firebase/app'
-import {FIREBASE_CONFIG} from 'constpack'
-
-firebase.initializeApp(FIREBASE_CONFIG)
+import firebase from 'constpack/env'
 
 export default function Container() {
   //
+  console.log(firebase)
   const [loginInfo, setLoginInfo] = useState(null)
   const onUpdate = data => {
     // console.log(data)
