@@ -17,12 +17,6 @@ function Presenter() {
           }}>
           확인
         </button>
-        <button
-          onClick={() => {
-            setValue({title: 'tesxt'})
-          }}>
-          확인
-        </button>
         <h1>Todo 컴포넌트 제작중</h1>
         <div>test</div>
         <div>

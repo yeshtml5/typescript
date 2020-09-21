@@ -2,7 +2,7 @@ import React, {useRef} from 'react'
 import styled from 'styled-components'
 import {Layout} from 'pages'
 import {useChanges} from 'components/hooks/useHooks'
-import {useGlobalStore} from 'contexts'
+//import {useGlobalStore} from 'contexts'
 
 type Props = {
   onUpdate: (data: object) => void
@@ -10,17 +10,11 @@ type Props = {
 }
 function Presenter({onUpdate, onSubmit}: Props) {
   //hooks
-  const [store, setStore] = useGlobalStore()
+  //const [store, setStore] = useGlobalStore()
   const refEmail = useRef<HTMLInputElement>(null)
   const refPassword = useRef<HTMLInputElement>(null)
-  const {changes, onChange} = useChanges(onUpdate)
+  const {onChange} = useChanges(onUpdate)
 
-  //validation
-  const setFocus = (ref: React.RefObject<HTMLInputElement>) => {
-    if (ref && ref.current) ref.current.focus()
-  }
-
-  //---------------------------------------------------------------------
   return (
     <Layout>
       <Content>
@@ -34,19 +28,14 @@ function Presenter({onUpdate, onSubmit}: Props) {
             <span>패스워드</span>
             <input ref={refPassword} id="password" type="password" name="password" onChange={onChange} />
           </label>
-          <button
-            onClick={() => {
-              setStore({title: ' qm6'})
-            }}>
-            전송
-          </button>
+          <button onClick={onSubmit}>전송</button>
         </div>
       </Content>
     </Layout>
   )
 }
 export default Presenter
-//---------------------------------------------------------------------
+
 const Content = styled.section`
   h1 {
     position: relative;

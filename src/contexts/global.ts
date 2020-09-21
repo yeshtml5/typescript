@@ -5,11 +5,14 @@
 import {createStateContext} from 'react-use'
 
 type Props = {
+  isLogin: boolean
   [key: string]: string | number | boolean | null | {}
 }
-
-const initalData = {}
-const [useGlobal, useGlobalProvider] = createStateContext<Props>(initalData)
+// Global Default
+const defaultValue = {
+  isLogin: false //로그인여부
+}
+const [useGlobal, useGlobalProvider] = createStateContext<Props>(defaultValue)
 
 export const useGlobalStore = useGlobal
 export const GlobalProvider = useGlobalProvider

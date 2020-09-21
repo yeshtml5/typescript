@@ -11,7 +11,7 @@ export default () => {
     <header>
       <div className="logo">
         <a href="/">
-          <img src={Logo} />
+          <img src={Logo} alt="logo" />
           <span>Typescript</span>
         </a>
       </div>
@@ -20,10 +20,10 @@ export default () => {
         <a href="mailto:yeshtml5@gmail.com">
           <FontAwesomeIcon icon={faEnvelope} />
         </a>
-        <a href="https://github.com/yeshtml5/typescript" target="_blank">
+        <a href="https://github.com/yeshtml5/typescript">
           <FontAwesomeIcon icon={faGithub} />
         </a>
-        <a href="https://unsplash.com/@yeshtml5" target="_blank">
+        <a href="https://unsplash.com/@yeshtml5">
           <FontAwesomeIcon icon={faCamera} />
         </a>
         <p>

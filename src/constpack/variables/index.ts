@@ -9,10 +9,10 @@ export const FORM_DATA_INFO: {
     NAME: 'name',
     PATTERN: /^[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]*$/
   },
-  EMAIL: {
-    NAME: 'email',
-    PATTERN: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
-  },
+  // EMAIL: {
+  //   NAME: 'email',
+  //   PATTERN: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
+  // },
   PASSWORD: {
     NAME: 'password',
     PATTERN: /^.*(?=.{8,16})(?=.*[0-9])(?=.*[a-zA-Z]).*$/

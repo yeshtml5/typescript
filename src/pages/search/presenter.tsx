@@ -4,7 +4,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Layout} from 'pages'
-import {useGlobalState, useGlobalDispatch} from 'contexts/old_global'
 import {useKey, useGeolocation} from 'react-use'
 function Presenter() {
   const state = useGeolocation()

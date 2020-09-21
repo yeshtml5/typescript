@@ -11,11 +11,7 @@ export default function Container() {
   }
   let location = useLocation()
 
-  useEffect(() => {
-    console.log(location)
-  }, [location])
-
-  const [loginInfo, setLoginInfo] = useState<Login | undefined>(undefined)
+  const [loginInfo] = useState<Login | undefined>(undefined)
   const onUpdate = data => {
     // console.log(data)
     //setLoginInfo(data)

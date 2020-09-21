@@ -27,7 +27,7 @@ export const useChanges = (callback: {}, defaultValue?: {}) => {
     event.persist()
     let _val = event.target.type === 'checkbox' && event.target.value === 'on' ? event.target.checked : event.target.value
     try {
-      if (event.target.name === '') throw 'target.name.null'
+      if (event.target.name === '') throw Error
     } catch (err) {
       switch (err) {
         case 'target.name.null':
