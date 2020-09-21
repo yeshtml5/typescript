@@ -6,7 +6,7 @@ import {createStateContext} from 'react-use'
 
 type Props = {
   isLogin: boolean
-  [key: string]: string | number | boolean | null | {}
+  [key: string]: any
 }
 // Global Default
 const defaultValue = {

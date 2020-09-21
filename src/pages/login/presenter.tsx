@@ -1,19 +1,16 @@
 import React, {useRef} from 'react'
+import {useMap} from 'react-use'
 import styled from 'styled-components'
 import {Layout} from 'pages'
-import {useChanges} from 'components/hooks/useHooks'
 //import {useGlobalStore} from 'contexts'
 
 type Props = {
-  onUpdate: (data: object) => void
-  onSubmit: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onSubmit: (data: object) => void
 }
-function Presenter({onUpdate, onSubmit}: Props) {
-  //hooks
-  //const [store, setStore] = useGlobalStore()
+function Presenter({onSubmit}: Props) {
+  const [map, {setAll}] = useMap({})
   const refEmail = useRef<HTMLInputElement>(null)
   const refPassword = useRef<HTMLInputElement>(null)
-  const {onChange} = useChanges(onUpdate)
 
   return (
     <Layout>
@@ -22,14 +19,34 @@ function Presenter({onUpdate, onSubmit}: Props) {
         <div className="in_wrap">
           <label htmlFor="id">
             <span>이메일</span>
-            <input ref={refEmail} id="email" type="text" name="email" onChange={onChange} />
+            <input
+              ref={refEmail}
+              type="text"
+              placeholder={'e-mail'}
+              onChange={e => {
+                setAll({...map, email: e.target.value})
+              }}
+            />
           </label>
           <label htmlFor="password">
             <span>패스워드</span>
-            <input ref={refPassword} id="password" type="password" name="password" onChange={onChange} />
+            <input
+              ref={refPassword}
+              type="password"
+              placeholder={'password'}
+              onChange={e => {
+                setAll({...map, password: e.target.value})
+              }}
+            />
           </label>
-          <button onClick={onSubmit}>전송</button>
+          <button
+            onClick={() => {
+              onSubmit(map)
+            }}>
+            전송
+          </button>
         </div>
+        <div>{JSON.stringify(map, null, 2)}</div>
       </Content>
     </Layout>
   )

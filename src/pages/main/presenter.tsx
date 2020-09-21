@@ -18,27 +18,7 @@ function Presenter() {
           확인
         </button>
         <h1>Todo 컴포넌트 제작중</h1>
-        <div>test</div>
-        <div>
-          <button
-            onClick={() => {
-              let newVariable = window.navigator as any
-              if (newVariable.share) {
-                newVariable
-                  .share({
-                    title: '공유하기 예제',
-                    text: '고별 지루하기 짝이없는 명제들 그래도 그것은 진실',
-                    url: 'https://naver.com'
-                  })
-                  .then(() => alert('공유하기'))
-              } else {
-                alert('share not supported')
-              }
-            }}>
-            webShare
-          </button>
-        </div>
-        {/* <counter startCount={3} /> */}
+        <pre>{JSON.stringify(value, null, 1)}</pre>
       </Content>
     </Layout>
   )

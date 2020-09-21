@@ -1,37 +1,28 @@
-import React, {useEffect, useState} from 'react'
-import Presenter from './presenter'
+import React, {useEffect} from 'react'
 import {authService} from 'constpack'
 import {useLocation} from 'react-router-dom'
+import {useGlobalStore} from 'contexts'
+import Presenter from './presenter'
 
 export default function Container() {
-  //
-  type Login = {
-    email: string
-    password: string
-  }
   let location = useLocation()
+  const [global, setGlobal] = useGlobalStore()
 
-  const [loginInfo] = useState<Login | undefined>(undefined)
-  const onUpdate = data => {
-    // console.log(data)
-    //setLoginInfo(data)
-  }
-  const onSubmit = async event => {
+  const onSubmit = async data => {
     try {
-      if (!loginInfo) return
-      console.table(loginInfo)
-      const {email, password} = loginInfo
-      if (!authService.currentUser) {
-        // create user
-        const data = await authService.createUserWithEmailAndPassword(email, password)
-        console.log(data)
-      } else {
-        const data1 = await authService.signInWithEmailAndPassword(email, password)
-        console.log(data1)
+      const {email, password} = data
+      let result
+      if (global.isLogin) {
+        result = await authService.signInWithEmailAndPassword(email, password)
       }
+      if (!global.isLogin) {
+        result = await authService.createUserWithEmailAndPassword(email, password)
+      }
+      console.log('----')
+      console.log(result)
     } catch (error) {
       console.log(error)
     }
   }
-  return <Presenter onUpdate={onUpdate} onSubmit={onSubmit} />
+  return <Presenter onSubmit={onSubmit} />
 }
