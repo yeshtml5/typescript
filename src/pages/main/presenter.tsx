@@ -5,20 +5,22 @@ import React from 'react'
 import styled from 'styled-components'
 import {Layout} from 'pages'
 import {useGlobalStore} from 'contexts'
+import {useHistory} from 'react-router-dom'
 
 function Presenter() {
-  const [value, setValue] = useGlobalStore()
+  const [global] = useGlobalStore()
+  const history = useHistory()
+  const {isLogin} = global
   return (
     <Layout>
       <Content>
         <button
           onClick={() => {
-            console.log(value)
+            if (isLogin) history.push('/mypage')
+            if (!isLogin) history.push('/login')
           }}>
-          확인
+          페이지분기
         </button>
-        <h1>Todo 컴포넌트 제작중</h1>
-        <pre>{JSON.stringify(value, null, 1)}</pre>
       </Content>
     </Layout>
   )

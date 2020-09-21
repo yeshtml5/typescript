@@ -13,6 +13,7 @@ function Navi() {
   //const
   const [data] = useState<Navigations>([
     {title: 'Main', link: '/'},
+    {title: 'Mypage', link: '/mypage'},
     {title: 'Login', link: '/login'},
     {title: 'Search', link: '/search'},
     {title: 'Guide', link: '/guide'},

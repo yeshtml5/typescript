@@ -46,8 +46,11 @@ function Presenter({onSubmit}: Props) {
             전송
           </button>
         </div>
-        <div>{JSON.stringify(map, null, 2)}</div>
+        <Social>
+          <button>1</button>
+        </Social>
       </Content>
+      <div>{JSON.stringify(map, null, 2)}</div>
     </Layout>
   )
 }
@@ -96,3 +99,4 @@ const Content = styled.section`
   }
   min-height: 100px;
 `
+const Social = styled.div``

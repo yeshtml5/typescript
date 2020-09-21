@@ -12,6 +12,7 @@ function Router() {
       <Switch>
         <Route exact path="/" component={Pages.Main} />
         <Route exact path="/login" component={Pages.Login} />
+        <Route exact path="/mypage" component={Pages.Mypage} />
         <Route exact path="/search" component={Pages.Search} />
 
         <Route exact path="/guide" component={Pages.Guide} />
