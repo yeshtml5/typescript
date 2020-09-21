@@ -2,44 +2,24 @@
  * @title
  */
 import React from 'react'
-
 import styled from 'styled-components'
 import {Layout} from 'pages'
-import {useGlobalState, useGlobalDispatch} from 'contexts/global'
+import {useGlobalStore} from 'contexts'
 
 function Presenter() {
-  const global = useGlobalState()
-  const dispatch = useGlobalDispatch()
-
+  const [value, setValue] = useGlobalStore()
   return (
     <Layout>
       <Content>
-        <p>
-          <button
-            onClick={() => {
-              dispatch({type: 'REMOVE', title: 'name'})
-            }}>
-            'REMOVE'
-          </button>
-        </p>
-        <p>
-          <button
-            onClick={() => {
-              dispatch({type: 'CREATE', title: 'hey ', name: 1111})
-            }}></button>
-        </p>
-        <p>
-          <button
-            onClick={() => {
-              dispatch({type: 'UPDATE', title: 'UPDATE ', name: 'react'})
-            }}>
-            'UPDATE1'
-          </button>
-        </p>
-
         <button
           onClick={() => {
-            console.log(global)
+            console.log(value)
+          }}>
+          확인
+        </button>
+        <button
+          onClick={() => {
+            setValue({title: 'tesxt'})
           }}>
           확인
         </button>
@@ -76,7 +56,8 @@ const Content = styled.section`
     margin-bottom: 10px;
   }
   button {
-    display: inline-block;
+    display: block;
+    margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
     color: #ff0000;

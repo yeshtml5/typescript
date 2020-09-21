@@ -8,15 +8,16 @@ export default function Container() {
   let history = useHistory()
   useEffect(() => {
     authService.onAuthStateChanged(user => {
+      console.log(user)
       // 로그인
       if (user) {
         console.log(user)
         console.log('로그인')
-        history.push('/login', user)
+        // history.push('/login', user)
       } else {
         console.log('로그아웃')
 
-        history.push('/login')
+        //  history.push('/login')
       }
       setInit(true)
     })

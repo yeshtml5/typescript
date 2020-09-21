@@ -3,9 +3,6 @@
  * @param {}
  */
 import React, {createContext, Dispatch, useReducer, useContext} from 'react'
-
-//export type
-//---------------------------------------------------------------------
 //type
 type GlobalState = object | undefined | null
 type Action = {type: 'CREATE'; title: string; name: any} | {type: 'UPDATE'; title: string; name: string} | {type: 'REMOVE'; title: string | null}
@@ -13,12 +10,7 @@ type GlobalDispatch = Dispatch<Action>
 //context
 const stateContext = createContext<object | undefined>(undefined)
 const dispatchContext = createContext<GlobalDispatch | undefined>(undefined)
-//---------------------------------------------------------------------
-/**
- * reducer
- * @param {state}   : object
- * @param {action}  : action type
- */
+
 function globalReducer(state: GlobalState, action: Action): object {
   switch (action.type) {
     case 'CREATE':

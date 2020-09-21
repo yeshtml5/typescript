@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import useForm from 'react-hook-form'
 //components
 import Layout from '../common/layout'
-import {useGlobalState} from 'contexts/global'
+import {useGlobalState} from 'contexts/old_global'
 //
 
 const App: React.FC = props => {

@@ -10,8 +10,10 @@ export default () => {
   return (
     <header>
       <div className="logo">
-        <img src={Logo} />
-        <span>Typescript</span>
+        <a href="/">
+          <img src={Logo} />
+          <span>Typescript</span>
+        </a>
       </div>
       <Navi />
       <footer>
