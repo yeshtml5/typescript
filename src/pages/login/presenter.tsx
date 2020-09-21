@@ -5,9 +5,10 @@ import {Layout} from 'pages'
 //import {useGlobalStore} from 'contexts'
 
 type Props = {
-  onSubmit: (data: object) => void
+  onSocial: (data: any) => void
+  onSubmit: (data: any) => void
 }
-function Presenter({onSubmit}: Props) {
+function Presenter({onSocial, onSubmit}: Props) {
   const [map, {setAll}] = useMap({})
   const refEmail = useRef<HTMLInputElement>(null)
   const refPassword = useRef<HTMLInputElement>(null)
@@ -47,7 +48,12 @@ function Presenter({onSubmit}: Props) {
           </button>
         </div>
         <Social>
-          <button>1</button>
+          <button name="github" onClick={() => onSocial('github')}>
+            깃허브
+          </button>
+          <button name="google" onClick={() => onSocial('google')}>
+            Google
+          </button>
         </Social>
       </Content>
       <div>{JSON.stringify(map, null, 2)}</div>
@@ -99,4 +105,9 @@ const Content = styled.section`
   }
   min-height: 100px;
 `
-const Social = styled.div``
+const Social = styled.div`
+  button {
+    display: block;
+    padding: 10px 20px;
+  }
+`
