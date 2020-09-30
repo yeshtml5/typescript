@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export default ({children}: Props) => {
+const Layout = ({children}: Props) => {
   return (
     <main>
       <Header />
@@ -13,3 +13,4 @@ export default ({children}: Props) => {
     </main>
   )
 }
+export default Layout
