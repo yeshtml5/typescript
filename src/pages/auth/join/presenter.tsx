@@ -15,7 +15,7 @@ function Presenter({onSocial, onSubmit}: Props) {
   return (
     <Layout>
       <Content>
-        <h1>Login</h1>
+        <h1>JOIN</h1>
         <div className="in_wrap">
           <label htmlFor="id">
             <span>이메일</span>

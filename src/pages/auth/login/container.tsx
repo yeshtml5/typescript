@@ -22,13 +22,6 @@ function Container() {
       console.log(global.isLogin)
       let result
       result = await authService.signInWithEmailAndPassword(email, password)
-
-      // if (global.isLogin) {
-      //   result = await authService.signInWithEmailAndPassword(email, password)
-      // }
-      // if (!global.isLogin) {
-      //   result = await authService.createUserWithEmailAndPassword(email, password)
-      // }
     } catch (error) {
       alert(error.message)
     }
