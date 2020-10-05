@@ -15,6 +15,7 @@ function Navi() {
     {title: 'Main', link: '/'},
     {title: 'Mypage', link: '/mypage'},
     {title: 'Login', link: '/login'},
+    {title: 'Join', link: '/join'},
     {title: 'Search', link: '/search'},
     {title: 'Guide', link: '/guide'},
     {title: 'Hooks', link: '/guide/hooks'}

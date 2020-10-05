@@ -2,7 +2,6 @@ import React, {useRef} from 'react'
 import {useMap} from 'react-use'
 import styled from 'styled-components'
 import {Layout} from 'pages'
-//import {useGlobalStore} from 'contexts'
 
 type Props = {
   onSocial: (data: any) => void
